@@ -1,4 +1,4 @@
-namespace Unit03.Game
+namespace jumper
 {
     /// <summary>
     /// <para>A person who directs the game.</para>
@@ -8,9 +8,9 @@ namespace Unit03.Game
     /// </summary>
     public class Director
     {
-        private Hider hider = new Hider();
         private bool isPlaying = true;
-        private Seeker seeker = new Seeker();
+        private Word word = new Word();
+        private Player player = new Player();
         private TerminalService terminalService = new TerminalService();
 
         /// <summary>
@@ -34,13 +34,12 @@ namespace Unit03.Game
         }
 
         /// <summary>
-        /// Moves the seeker to a new location.
+        /// Gets the players guess.
         /// </summary>
         private void GetInputs()
         {
-            // terminalService.WriteText(hider.location.ToString());
-            int location = terminalService.ReadNumber("\nEnter a location [1-1000]: ");
-            seeker.MoveLocation(location);
+            string letter = terminalService.ReadText("\nGuess a letter [a-z]: ");
+            Player.GetLetter(letter);
         }
 
         /// <summary>
@@ -48,7 +47,7 @@ namespace Unit03.Game
         /// </summary>
         private void DoUpdates()
         {
-            hider.WatchSeeker(seeker);
+            bool guess = word.CompareGuess(letter);
         }
 
         /// <summary>
