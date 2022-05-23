@@ -1,7 +1,7 @@
 using System;
 
 
-namespace Unit03.Game
+namespace jumper
 {
     /// <summary>
     /// <para>A service that handles terminal operations.</para>
