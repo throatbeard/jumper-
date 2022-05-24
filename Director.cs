@@ -39,7 +39,7 @@ namespace jumper
         private void GetInputs()
         {
             string letter = terminalService.ReadText("\nGuess a letter [a-z]: ");
-            Player.SetLetter(letter);
+            player.SetLetter(letter);
         }
 
         /// <summary>
@@ -47,7 +47,21 @@ namespace jumper
         /// </summary>
         private void DoUpdates()
         {
-            bool guess = word.CompareGuess(letter);
+            List<int> letter_placement = word.compareGuess(player);
+            if (letter_placement == null)
+            {
+                player.incrementWrong();
+            }
+            else
+            {
+                word.updateDashes(letter_placement, player.getLetter());
+            }
+
+            if (player.numWrongGuesses >= 5 || word.currentWord == word.convertC2S(word.Dashes))
+            {
+                isPlaying = false;
+            }
+
         }
 
         /// <summary>
@@ -55,13 +69,11 @@ namespace jumper
         /// </summary>
         private void DoOutputs()
         {
-            string hint = hider.GetHint();
-            terminalService.WriteText(hint);
-            if (hider.IsFound())
+            terminalService.WriteText(word.convertC2S(word.Dashes));
+            for (int i = player.numWrongGuesses; i <= 8; i++)
             {
-                isPlaying = false;
+                terminalService.WriteText(player.Picture[i]);
             }
-            
         }
     }
 }
