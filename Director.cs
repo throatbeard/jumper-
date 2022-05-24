@@ -57,7 +57,7 @@ namespace jumper
                 word.updateDashes(letter_placement, player.getLetter());
             }
 
-            if (player.numWrongGuesses >= 5 || word.currentWord == word.convertC2S(word.Dashes))
+            if (player.numWrongGuesses >= 5 || word.currentWord == word.dashedWord)
             {
                 isPlaying = false;
             }
@@ -69,7 +69,7 @@ namespace jumper
         /// </summary>
         private void DoOutputs()
         {
-            terminalService.WriteText(word.convertC2S(word.Dashes));
+            terminalService.WriteText(word.dashedWord);
             for (int i = player.numWrongGuesses; i <= 8; i++)
             {
                 terminalService.WriteText(player.Picture[i]);

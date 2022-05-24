@@ -30,7 +30,7 @@ namespace jumper{
         public List<int> compareGuess(Player player) {
             //returns a list of index(s) of where letter matches
             List<int> index = new List<int>();
-            for(int i = 0;i<=this.currentWord.Length;i++) {
+            for(int i = 0;i<=(this.currentWord.Length-1);i++) {
                 if(this.currentWord[i]==player.getLetter()) {
                     index.Add(i);
                 }
