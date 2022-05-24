@@ -10,7 +10,7 @@ public class Player
       
    }
 
-void SetLetter(string a){           //sets player input and stores into private Letter
+void SetLetter(string a){           //sets player input and stores into private Letter variable
 Letter = a;
 }
 
