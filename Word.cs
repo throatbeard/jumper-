@@ -2,11 +2,9 @@ namespace jumper{
     public class Word{
         public List<char> Dashes = new List<char>{};           //contains the player's progress on guessing the word. if dashes == the correct word, game is won
 
-        public List<string> wordSelection = new List<string>{"word"};
-        
-        // {"abandon","accompany","acknowledge","beginning","behavior","calculate",
-        //                                     "candidate","development","efficiency","foundation","implication","knowledge","moderate",
-        //                                     "nomination","performance","representative","shot","tournament","tournament","zone"};
+        public List<string> wordSelection = new List<string> {"abandon","accompany","acknowledge","beginning","behavior","calculate",
+                                            "candidate","development","efficiency","foundation","implication","knowledge","moderate",
+                                            "nomination","performance","representative","shot","tournament","tournament","zone"};
         public string currentWord; //I think it can be private, feel free to change if needed
         public string dashedWord;
 

@@ -3,7 +3,7 @@ namespace jumper{
    {
       public string Letter;           //holds the player's input
       public int numWrongGuesses = 0;     //ticks upward if wrong. used to check if game is lost or not
-      public List<string> Picture = new List<string>{"   ----"," /     \\"," -------"," \\     /","  \\   /", "   o", "  /|\\", "  /\\"};          //visual rep of the player's progress(or rather, lack of)
+      public List<string> Picture = new List<string>{"  -----"," /     \\"," -------"," \\     /","  \\   /", "    o", "   /|\\", "   / \\"};          //visual rep of the player's progress(or rather, lack of)
 
       public Player()
       {

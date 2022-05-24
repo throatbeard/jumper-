@@ -27,9 +27,9 @@ namespace jumper
         {
             while (isPlaying)
             {
+                DoOutputs();
                 GetInputs();
                 DoUpdates();
-                DoOutputs();
             }
         }
 
@@ -48,19 +48,26 @@ namespace jumper
         private void DoUpdates()
         {
             List<int> letter_placement = word.compareGuess(player);
-            if (letter_placement == null)
-            {
-                player.incrementWrong();
-            }
+            bool isEmpty = !letter_placement.Any();
+            if (isEmpty)
+                {
+                    player.incrementWrong();
+                }
             else
-            {
-                word.updateDashes(letter_placement, player.getLetter());
-            }
+                {
+                    word.updateDashes(letter_placement, player.getLetter());
+                }
 
-            if (player.numWrongGuesses >= 5 || word.currentWord == word.dashedWord)
-            {
-                isPlaying = false;
-            }
+            if (player.numWrongGuesses >= 5)
+                {
+                    isPlaying = false;
+                    terminalService.WriteText("    x\n   /|\\\n   / \\");
+                }
+            else if (word.currentWord == word.convertC2S(word.Dashes))
+                {
+                    isPlaying = false;
+                    terminalService.WriteText("You win!");
+                }
 
         }
 
