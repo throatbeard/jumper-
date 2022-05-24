@@ -19,17 +19,11 @@ namespace jumper{
 
    }
 
-<<<<<<< HEAD
    public char getLetter(){
       
       char Letter_c = Letter[0];
       return Letter_c;
    }
-=======
-void SetLetter(string a){           //sets player input and stores into private Letter variable
-Letter = a;
-}
->>>>>>> 3bfc2ac4f693e0f15fdb16f5e8f38e148f886ac0
 
    public int incrementWrong()
    {
