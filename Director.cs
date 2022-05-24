@@ -62,6 +62,7 @@ namespace jumper
                 {
                     isPlaying = false;
                     terminalService.WriteText("    x\n   /|\\\n   / \\");
+                    terminalService.WriteText($"The word was: {word.currentWord}");
                 }
             else if (word.currentWord == word.convertC2S(word.Dashes))
                 {
