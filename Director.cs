@@ -39,7 +39,7 @@ namespace jumper
         private void GetInputs()
         {
             string letter = terminalService.ReadText("\nGuess a letter [a-z]: ");
-            Player.GetLetter(letter);
+            Player.SetLetter(letter);
         }
 
         /// <summary>
