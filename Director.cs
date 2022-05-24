@@ -69,7 +69,7 @@ namespace jumper
         /// </summary>
         private void DoOutputs()
         {
-            terminalService.WriteText(word.dashedWord);
+            terminalService.WriteText(word.convertC2S(word.Dashes));
             for (int i = player.numWrongGuesses; i <= 7; i++)
             {
                 terminalService.WriteText(player.Picture[i]);

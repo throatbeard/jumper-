@@ -2,9 +2,11 @@ namespace jumper{
     public class Word{
         public List<char> Dashes = new List<char>{};           //contains the player's progress on guessing the word. if dashes == the correct word, game is won
 
-        public List<string> wordSelection = new List<string>{"abandon","accompany","acknowledge","beginning","behavior","calculate",
-                                            "candidate","development","efficiency","foundation","implication","knowledge","moderate",
-                                            "nomination","performance","representative","shot","tournament","tournament","zone"};
+        public List<string> wordSelection = new List<string>{"word"};
+        
+        // {"abandon","accompany","acknowledge","beginning","behavior","calculate",
+        //                                     "candidate","development","efficiency","foundation","implication","knowledge","moderate",
+        //                                     "nomination","performance","representative","shot","tournament","tournament","zone"};
         public string currentWord; //I think it can be private, feel free to change if needed
         public string dashedWord;
 
@@ -14,7 +16,7 @@ namespace jumper{
             int index = random.Next(this.wordSelection.Count);
             this.currentWord = this.wordSelection[index];
             char dash = '-';
-            for (int i = 0; i <= this.getWordLength(); i++)
+            for (int i = 0; i <= (this.getWordLength()-1); i++)
             {   
                 Dashes.Add(dash);
             }
@@ -42,19 +44,11 @@ namespace jumper{
             return this.currentWord.Length;
         }
         
-        private void MakeDashes()
-        {
-            char dash = '-';
-            for (int i = 0; i <= this.getWordLength(); i++)
-            {   
-                Dashes.Add(dash);
-            }
-        }
         public void updateDashes(List<int> index, char letter)
         {
-            for (int i = 0; i <= index.Count; i++)
+            for (int i = 0; i <= (index.Count-1); i++)
             {   
-                Dashes[i] = letter;
+                Dashes[index[i]] = letter;
             }
         }
 
