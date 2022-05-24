@@ -7,6 +7,13 @@ namespace jumper{
                                             "nomination","performance","representative","shot","tournament","tournament","zone"};
         public string currentWord; //I think it can be private, feel free to change if needed
 
+      public Word()
+      {
+            Random random = new Random();
+            int index = random.Next(this.wordSelection.Count);
+            this.currentWord = this.wordSelection[index];
+      }
+
         public void chooseWord() {
             Random random = new Random();
             int index = random.Next(this.wordSelection.Count);
