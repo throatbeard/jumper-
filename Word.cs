@@ -6,12 +6,19 @@ namespace jumper{
                                             "candidate","development","efficiency","foundation","implication","knowledge","moderate",
                                             "nomination","performance","representative","shot","tournament","tournament","zone"};
         public string currentWord; //I think it can be private, feel free to change if needed
+        public string dashedWord;
 
       public Word()
       {
             Random random = new Random();
             int index = random.Next(this.wordSelection.Count);
             this.currentWord = this.wordSelection[index];
+            char dash = '-';
+            for (int i = 0; i <= this.getWordLength(); i++)
+            {   
+                Dashes.Add(dash);
+            }
+            dashedWord = new string(Dashes.ToArray());
       }
 
         public void chooseWord() {
