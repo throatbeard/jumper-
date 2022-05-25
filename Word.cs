@@ -6,19 +6,19 @@ namespace jumper{
                                             "candidate","development","efficiency","foundation","implication","knowledge","moderate",
                                             "nomination","performance","representative","shot","tournament","tournament","zone"};
         public string currentWord; //I think it can be private, feel free to change if needed
-        public string dashedWord;
+        public string dashedWord;                                   //dashedWord as a string version of Dashes(ended up not being used)
 
       public Word()
       {
-            Random random = new Random();
-            int index = random.Next(this.wordSelection.Count);
+            Random random = new Random();                           //this is basically chooseWord
+            int index = random.Next(this.wordSelection.Count);      //starts the initialization off with chooseWord
             this.currentWord = this.wordSelection[index];
-            char dash = '-';
-            for (int i = 0; i <= (this.getWordLength()-1); i++)
+            char dash = '-';                                        //also creates Dashes immediately after the random word is selected
+            for (int i = 0; i <= (this.getWordLength()-1); i++)     //dashes is the ----- version of the randomly chosen word
             {   
                 Dashes.Add(dash);
             }
-            dashedWord = new string(Dashes.ToArray());
+            dashedWord = new string(Dashes.ToArray());              //never got used but it creates dashedWord from Dashes
       }
 
         public void chooseWord() {
